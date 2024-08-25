@@ -1,12 +1,8 @@
-// import React, { Children } from 'react';
-// import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
-import { SidebarItems } from '../../routes/admin.routes';
+import Sidebar from './Sidebar';
 
-const { Header, Content, Footer, Sider } = Layout;
-
-// const items: MenuProps['items'] = SidebarItems
+const { Header, Content, Footer } = Layout;
 
 const MainLayout: React.FC = () => {
   const {
@@ -15,28 +11,7 @@ const MainLayout: React.FC = () => {
 
   return (
     <Layout style={{ height: "100vh"}}>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div style={{
-            color: 'white',
-            height: "4em",
-            display: "flex",
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer'
-        }}>
-            <h1>Iqra Academy</h1>
-        </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={SidebarItems} />
-      </Sider>
+      <Sidebar />
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: '24px 16px 0' }}>
@@ -52,7 +27,7 @@ const MainLayout: React.FC = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          Iqra Academy ©{new Date().getFullYear()} 
         </Footer>
       </Layout>
     </Layout>
