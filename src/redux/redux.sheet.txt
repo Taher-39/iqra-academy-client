@@ -1,0 +1,2 @@
+post> mutation
+other> query

@@ -3,6 +3,8 @@ import { adminPaths } from '../../routes/admin.routes';
 import { facultyPaths } from '../../routes/faculty.routes';
 import { studentPaths } from '../../routes/student.routes';
 import { sidebarItemsGenerator } from '../../utils/SidebarGenaretor';
+import { useAppSelector } from '../../redux/hooks';
+import { UseCurrentUser } from '../../redux/features/Auth/authSlice';
 
 const { Sider } = Layout;
 
@@ -13,10 +15,10 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const role = 'admin';
+  const user = useAppSelector(UseCurrentUser)
   let sidebarItems;
 
-  switch (role) {
+  switch (user?.role) {
     case userRole.ADMIN:
       sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -42,7 +44,7 @@ const Sidebar = () => {
           alignItems: 'center',
         }}
       >
-        <h1>PH Uni</h1>
+        <h1>Iqra Academy</h1>
       </div>
       <Menu
         theme="dark"
